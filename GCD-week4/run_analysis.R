@@ -49,3 +49,6 @@ library(reshape2)
 X3<-melt(X2,id=c("Activity","Subjects"),measure.vars = selectedFeatures)
 X4<-dcast(X3, Activity ~ variable, mean)
 X5<-dcast(X3, Subjects ~ variable, mean)
+
+write.table(X4, file = "./tidydata1.txt", row.names = FALSE, col.names = TRUE) 
+write.table(X5, file = "./tidydata2.txt", row.names = FALSE, col.names = TRUE) 
