@@ -5,6 +5,10 @@
 
 library(dplyr) 
 
+# fileUrl<-"https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+# download.file(fileUrl,destfile = "getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip")
+# unzip("getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip")
+
 #load features & load activity lables
 activityLabels<-read.table("UCI HAR Dataset/activity_labels.txt")
 features<-read.table("UCI HAR Dataset/features.txt")
@@ -47,8 +51,11 @@ X2<-merge(X2,activityLabels,by.x="ActivityID",by.y="ActivityID")
 #  of each variable for each activity and each subject
 library(reshape2)
 X3<-melt(X2,id=c("Activity","Subjects"),measure.vars = selectedFeatures)
-X4<-dcast(X3, Activity ~ variable, mean)
-X5<-dcast(X3, Subjects ~ variable, mean)
+
+#I had to do bit of googling for this one. Essentially what it does is combines 
+#the subject with the columns thus give you a clean mean of the function with
+#subject(like 2_tBodyAccJer) against activity(row)
+X4<-dcast(X3, Activity ~ Subjects + variable, mean)
 
 write.table(X4, file = "./tidydata1.txt", row.names = FALSE, col.names = TRUE) 
-write.table(X5, file = "./tidydata2.txt", row.names = FALSE, col.names = TRUE) 
+
