@@ -5,10 +5,6 @@ date: "7/22/2019"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 ## Run_Analysis.R
 
 Code is divided into sections
