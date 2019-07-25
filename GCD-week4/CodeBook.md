@@ -18,6 +18,7 @@ Code is divided into sections
 -X3 has the melted data set  
 -X2 has the merged data set  
 
-# Tidy data
-I chose to dcast my data set wide, meaning variable and subject were represented with one column e.g 1_tBodyAcc.mean...X where 1 is subject
-
+# Tidy data format
+Subjects
+Variable fields
+Activity (agreegated by mean)
