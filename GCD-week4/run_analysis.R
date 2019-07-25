@@ -52,9 +52,7 @@ X2<-merge(X2,activityLabels,by.x="ActivityID",by.y="ActivityID")
 library(reshape2)
 X3<-melt(X2,id=c("Activity","Subjects"),measure.vars = selectedFeatures)
 
-# I had to do bit of googling for this one. Essentially what it does is combines 
-# the subject with the columns thus give you a clean mean of the function with
-# subject(like 2_tBodyAccJer) against activity(row)
+# dcasted by Subject+Variable and agreegated on Activity
 X4<-dcast(X3, Subjects + variable ~ Activity, mean)
 
 head(X4)
