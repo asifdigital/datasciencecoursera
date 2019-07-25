@@ -19,6 +19,7 @@ Code is divided into sections
 -X2 has the merged data set  
 
 # Tidy data format
-Subjects
-Variable fields
-Activity (agreegated by mean)
+-Subjects  
+-Variable fields  
+-Activity (agreegated by mean)  
+
